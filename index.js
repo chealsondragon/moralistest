@@ -9,13 +9,13 @@ const runApp = async () => {
   const address = "0x85C75455e529C1d5592e828b4c106191EFdE5B8C";
 
   const chain = EvmChain.MUMBAI;
-
-  const response = await Moralis.EvmApi.nft.getWalletNFTCollections({
+  const limit = 10;
+  const response = await Moralis.AptosApi.collections.getNFTCollectionsByCreator({
+    limit,
     address,
-    chain,
   });
 
-  console.log(response.toJSON());
+  console.log(response.result);
 };
 
 runApp();
